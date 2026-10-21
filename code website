@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="DO IT Clothing – Streetwear, Schuhe, Hosen, Jacken, Caps & Mützen.">
+<title>DO IT® — Clothing</title>
+
+<style>
+:root{
+  --bg:#070707;
+  --card:#101010;
+  --text:#f4f4f2;
+  --muted:#8c8c8c;
+  --line:#242424;
+  --white:#fff;
+  --max:1400px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
+}
+
+button,input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(var(--max),92%);
+  margin:auto;
+}
+
+/* ================= LOADER ================= */
+
+.loader{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  transition:.7s;
+}
+
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader-mark{
+  font-size:clamp(3rem,15vw,9rem);
+  font-weight:900;
+  letter-spacing:-.08em;
+}
+
+.loader-mark span{
+  display:inline-block;
+  animation:pop .8s ease both;
+}
+
+.loader-mark span:nth-child(2){
+  animation-delay:.08s;
+}
+
+.loader-mark span:nth-child(3){
+  animation-delay:.16s;
+}
+
+.loader-mark span:nth-child(4){
+  animation-delay:.24s;
+}
+
+@keyframes pop{
+  from{
+    transform:translateY(25px);
+    opacity:0;
+  }
+
+  to{
+    transform:none;
+    opacity:1;
+  }
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  padding:18px 0;
+  transition:.3s;
+}
+
+.header.scrolled{
+  background:rgba(7,7,7,.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.icon-btn{
+  width:44px;
+  height:44px;
+  border:1px solid transparent;
+  background:transparent;
+  color:white;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+}
+
+.icon-btn:hover{
+  border-color:#444;
+  background:#111;
+}
+
+.logo-small{
+  font-weight:900;
+  font-size:1.25rem;
+  letter-spacing:-.07em;
+}
+
+.logo-small span{
+  font-size:.55rem;
+  letter-spacing:.22em;
+  display:block;
+  text-align:center;
+  margin-top:-2px;
+}
+
+.right-actions{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.bag-count{
+  position:absolute;
+  top:7px;
+  right:4px;
+  background:#fff;
+  color:#000;
+  border-radius:50%;
+  font-size:9px;
+  width:16px;
+  height:16px;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+}
+
+.bag-wrap{
+  position:relative;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:100px 20px 60px;
+  background:
+    radial-gradient(
+      circle at center,
+      #151515 0,
+      #070707 48%,
+      #000 100%
+    );
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    transparent 75%,
+    #070707
+  );
+}
+
+.hero-logo{
+  width:min(720px,78vw);
+  max-height:68vh;
+  object-fit:contain;
+  mix-blend-mode:screen;
+  filter:contrast(1.05);
+}
+
+.hero-copy{
+  position:absolute;
+  bottom:30px;
+  left:0;
+  right:0;
+  text-align:center;
+  z-index:2;
+  text-transform:uppercase;
+  font-size:10px;
+  letter-spacing:.3em;
+  color:#aaa;
+}
+
+.scroll-line{
+  width:1px;
+  height:55px;
+  background:#777;
+  margin:14px auto 0;
+  animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    opacity:.2;
+    transform:scaleY(.65);
+  }
+}
+
+/* ================= INTRO ================= */
+
+.intro{
+  padding:130px 0 100px;
+  border-top:1px solid var(--line);
+}
+
+.kicker{
+  text-transform:uppercase;
+  color:#777;
+  font-size:10px;
+  letter-spacing:.28em;
+  margin-bottom:22px;
+}
+
+.intro h1{
+  font-size:clamp(3rem,9vw,8.5rem);
+  line-height:.88;
+  letter-spacing:-.075em;
+  max-width:1000px;
+}
+
+.intro p{
+  max-width:570px;
+  color:#aaa;
+  line-height:1.7;
+  margin:35px 0 0;
+  font-size:1rem;
+}
+
+/* ================= STORY ================= */
+
+.story{
+  padding:100px 0;
+  border-top:1px solid var(--line);
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:end;
+}
+
+.story h2{
+  font-size:clamp(2.5rem,7vw,7rem);
+  line-height:.9;
+  letter-spacing:-.07em;
+}
+
+.story-text{
+  color:#aaa;
+  line-height:1.8;
+  max-width:520px;
+}
+
+.story-text strong{
+  color:#fff;
+}
+
+/* ================= SHOP ================= */
+
+.shop{
+  padding:110px 0;
+  border-top:1px solid var(--line);
+}
+
+.shop-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:end;
+  margin-bottom:30px;
+}
+
+.shop-head h2{
+  font-size:clamp(3rem,8vw,7rem);
+  letter-spacing:-.07em;
+  line-height:.85;
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  padding-bottom:8px;
+  margin-bottom:28px;
+}
+
+.filter{
+  border:1px solid #333;
+  background:transparent;
+  color:#aaa;
+  padding:11px 15px;
+  border-radius:100px;
+  white-space:nowrap;
+}
+
+.filter.active,
+.filter:hover{
+  background:#fff;
+  color:#000;
+  border-color:#fff;
+}
+
+.gender{
+  display:flex;
+  gap:8px;
+  margin-bottom:30px;
+}
+
+.gender button{
+  border:0;
+  background:#151515;
+  color:#aaa;
+  padding:10px 14px;
+  border-radius:5px;
+}
+
+.gender button.active{
+  background:#fff;
+  color:#000;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.product{
+  background:#101010;
+  border:1px solid #1d1d1d;
+  position:relative;
+  overflow:hidden;
+  transition:.35s;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  border-color:#444;
+}
+
+.product-img{
+  aspect-ratio:4/5;
+  background:#171717;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.product:hover .product-img img{
+  transform:scale(1.04);
+}
+
+.placeholder{
+  font-size:10px;
+  letter-spacing:.2em;
+  color:#555;
+  text-transform:uppercase;
+}
+
+.product-info{
+  padding:16px;
+}
+
+.brand{
+  font-size:10px;
+  color:#777;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+}
+
+.product-name{
+  font-weight:700;
+  margin-top:6px;
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  color:#777;
+  font-size:11px;
+  margin-top:10px;
+}
+
+.price{
+  font-weight:800;
+  color:#fff;
+}
+
+.heart{
+  position:absolute;
+  top:12px;
+  right:12px;
+  border:0;
+  background:rgba(0,0,0,.65);
+  color:#fff;
+  border-radius:50%;
+  width:36px;
+  height:36px;
+}
+
+.add{
+  width:100%;
+  border:1px solid #333;
+  background:#fff;
+  color:#000;
+  padding:11px;
+  margin-top:13px;
+  font-weight:800;
+  text-transform:uppercase;
+  font-size:10px;
+  letter-spacing:.1em;
+}
+
+.empty{
+  grid-column:1/-1;
+  padding:60px;
+  text-align:center;
+  color:#777;
+  border:1px dashed #333;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  padding:90px 0 35px;
+  border-top:1px solid var(--line);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer h3{
+  font-size:2rem;
+  letter-spacing:-.05em;
+}
+
+.footer p,
+.footer a{
+  color:#888;
+  line-height:2;
+  display:block;
+}
+
+.footer a:hover{
+  color:#fff;
+}
+
+.copyright{
+  border-top:1px solid var(--line);
+  margin-top:60px;
+  padding-top:20px;
+  color:#555;
+  font-size:10px;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* ================= MENU ================= */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:1900;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+
+.overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.drawer{
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  width:min(420px,90vw);
+  background:#0b0b0b;
+  z-index:2000;
+  transform:translateX(-100%);
+  transition:.4s cubic-bezier(.7,0,.2,1);
+  padding:30px;
+}
+
+.drawer.open{
+  transform:none;
+}
+
+.drawer-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:45px;
+}
+
+.close{
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:28px;
+}
+
+.drawer nav a{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 0;
+  border-bottom:1px solid #242424;
+  font-size:1.2rem;
+  font-weight:700;
+}
+
+.drawer nav a small{
+  font-size:10px;
+  color:#666;
+  letter-spacing:.15em;
+}
+
+.drawer-bottom{
+  position:absolute;
+  left:30px;
+  right:30px;
+  bottom:30px;
+}
+
+.drawer-bottom p{
+  color:#777;
+  font-size:12px;
+  line-height:1.7;
+}
+
+/* ================= SEARCH ================= */
+
+.search-panel{
+  position:fixed;
+  inset:0;
+  background:#070707;
+  z-index:1800;
+  padding:110px 5% 50px;
+  transform:translateY(-100%);
+  transition:.45s;
+}
+
+.search-panel.open{
+  transform:none;
+}
+
+.search-input{
+  width:100%;
+  border:0;
+  border-bottom:1px solid #444;
+  background:transparent;
+  color:#fff;
+  font-size:clamp(2rem,7vw,6rem);
+  outline:none;
+  padding:20px 0;
+}
+
+.search-hint{
+  color:#666;
+  margin-top:20px;
+}
+
+/* ================= CART ================= */
+
+.cart{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  width:min(440px,92vw);
+  background:#0b0b0b;
+  z-index:2000;
+  transform:translateX(100%);
+  transition:.4s cubic-bezier(.7,0,.2,1);
+  padding:28px;
+}
+
+.cart.open{
+  transform:none;
+}
+
+.cart-items{
+  margin-top:30px;
+  display:grid;
+  gap:12px;
+}
+
+.cart-item{
+  display:flex;
+  gap:12px;
+  padding:12px;
+  border:1px solid #252525;
+}
+
+.cart-item-img{
+  width:70px;
+  height:85px;
+  background:#171717;
+  object-fit:cover;
+}
+
+.cart-total{
+  border-top:1px solid #333;
+  margin-top:25px;
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  font-weight:800;
+}
+
+.checkout{
+  width:100%;
+  padding:15px;
+  border:0;
+  background:#fff;
+  color:#000;
+  font-weight:900;
+  margin-top:18px;
+}
+
+/* ================= LOGIN ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  z-index:2500;
+  display:grid;
+  place-items:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  padding:20px;
+}
+
+.modal.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-box{
+  background:#101010;
+  border:1px solid #333;
+  width:min(500px,100%);
+  padding:30px;
+}
+
+.modal-box h2{
+  font-size:2rem;
+  letter-spacing:-.05em;
+  margin-bottom:12px;
+}
+
+.modal-box p{
+  color:#888;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.modal-box input{
+  width:100%;
+  background:#070707;
+  border:1px solid #333;
+  color:#fff;
+  padding:13px;
+  margin-bottom:10px;
+}
+
+.modal-box button{
+  width:100%;
+  padding:13px;
+  border:0;
+  background:#fff;
+  color:#000;
+  font-weight:800;
+}
+
+.modal-close{
+  float:right;
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:22px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .story-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .shop-head{
+    display:block;
+  }
+
+  .shop-head h2{
+    margin-bottom:25px;
+  }
+}
+
+@media(max-width:560px){
+
+  .hero-logo{
+    width:92vw;
+  }
+
+  .products{
+    gap:8px;
+  }
+
+  .product-info{
+    padding:12px;
+  }
+
+  .footer-grid{
+    gap:30px;
+  }
+
+  .copyright{
+    display:block;
+    line-height:2;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= LOADER ================= -->
+
+<div class="loader" id="loader">
+
+  <div class="loader-mark">
+    <span>D</span>
+    <span>O</span>
+    <span> </span>
+    <span>IT</span>
+  </div>
+
+</div>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header" id="header">
+
+  <div class="container nav">
+
+    <button
+      class="icon-btn"
+      aria-label="Menü"
+      onclick="openMenu()"
+    >
+      ☰
+    </button>
+
+    <a href="#" class="logo-small">
+      DO IT
+      <span>CLOTHING</span>
+    </a>
+
+    <div class="right-actions">
+
+      <button
+        class="icon-btn"
+        aria-label="Suche"
+        onclick="openSearch()"
+      >
+        ⌕
+      </button>
+
+      <button
+        class="icon-btn"
+        aria-label="Anmelden"
+        onclick="openLogin()"
+      >
+        ♙
+      </button>
+
+      <button
+        class="icon-btn bag-wrap"
+        aria-label="Warenkorb"
+        onclick="openCart()"
+      >
+        ▢
+        <b class="bag-count" id="bagCount">0</b>
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<main>
+
+<section class="hero">
+
+  <img
+    class="hero-logo"
+    src="assets/logo.jpg"
+    alt="DO IT Clothing Logo"
+  >
+
+  <div class="hero-copy">
+
+    SCROLL TO DISCOVER
+
+    <div class="scroll-line"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro">
+
+  <div class="container">
+
+    <div class="kicker">
+      DO IT® / CLOTHING
+    </div>
+
+    <h1>
+      NICHT NUR<br>
+      ANZIEHEN.<br>
+      <span>DO IT.</span>
+    </h1>
+
+    <p>
+      Streetwear für Menschen, die nicht warten.
+      Entdecke unsere Auswahl an Schuhen, Hosen,
+      Jacken, Caps und Mützen.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section class="story" id="story">
+
+  <div class="container story-grid">
+
+    <div>
+
+      <div class="kicker">
+        Unsere Story
+      </div>
+
+      <h2>
+        ZWEI<br>
+        JUNGS.<br>
+        EIN<br>
+        TRAUM.
+      </h2>
+
+    </div>
+
+    <div class="story-text">
+
+      <p>
+        DO IT steht für eine Entscheidung:
+        anfangen, statt nur davon zu reden.
+        Zwei Jungs mit einem Traum, etwas Eigenes
+        aufzubauen und gemeinsam nach vorne zu gehen.
+      </p>
+
+      <br>
+
+      <p>
+        <strong>„Mach es.“</strong>
+        Genau daraus kommt unser Name.
+        Nicht irgendwann. Nicht morgen.
+        <strong>Jetzt.</strong>
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SHOP ================= -->
+
+<section class="shop" id="shop">
+
+  <div class="container">
+
+    <div class="shop-head">
+
+      <div>
+
+        <div class="kicker">
+          Unsere Artikel
+        </div>
+
+        <h2>
+          SHOP.
+        </h2>
+
+      </div>
+
+      <div class="kicker">
+        NEU / RESALE / SELECTED
+      </div>
+
+    </div>
+
+
+    <!-- GESCHLECHT -->
+
+    <div class="gender">
+
+      <button
+        class="active"
+        data-gender="Alle"
+      >
+        Alle
+      </button>
+
+      <button data-gender="Männer">
+        Männer
+      </button>
+
+      <button data-gender="Frauen">
+        Frauen
+      </button>
+
+    </div>
+
+
+    <!-- KATEGORIEN -->
+
+    <div class="filters">
+
+      <button
+        class="filter active"
+        data-filter="Alle"
+      >
+        Alle
+      </button>
+
+      <button
+        class="filter"
+        data-filter="Schuhe"
+      >
+        Schuhe
+      </button>
+
+      <button
+        class="filter"
+        data-filter="Hosen"
+      >
+        Hosen
+      </button>
+
+      <button
+        class="filter"
+        data-filter="Jacken"
+      >
+        Jacken
+      </button>
+
+      <button
+        class="filter"
+        data-filter="Caps"
+      >
+        Caps
+      </button>
+
+      <button
+        class="filter"
+        data-filter="Mützen"
+      >
+        Mützen
+      </button>
+
+    </div>
+
+
+    <div
+      class="products"
+      id="products"
+    ></div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer
+  class="footer"
+  id="contact"
+>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>
+          DO IT.
+        </h3>
+
+        <p>
+          Two boys. One dream.<br>
+          One decision.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <div class="kicker">
+          Shop
+        </div>
+
+        <a href="#shop">Schuhe</a>
+        <a href="#shop">Hosen</a>
+        <a href="#shop">Jacken</a>
+        <a href="#shop">Caps</a>
+        <a href="#shop">Mützen</a>
+
+      </div>
+
+
+      <div>
+
+        <div class="kicker">
+          Info
+        </div>
+
+        <a href="#story">
+          Unsere Story
+        </a>
+
+        <a
+          href="#"
+          onclick="openLogin();return false"
+        >
+          Anmelden
+        </a>
+
+        <a
+          href="#"
+          onclick="openLogin();return false"
+        >
+          Merkliste
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <div class="kicker">
+          Kontakt
+        </div>
+
+        <a href="mailto:hello@doit-clothing.de">
+          hello@doit-clothing.de
+        </a>
+
+        <a href="#">
+          Instagram
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      <span>
+        © 2026 DO IT® CLOTHING
+      </span>
+
+      <span>
+        MADE TO MOVE.
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= OVERLAY ================= -->
+
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeAll()"
+></div>
+
+
+<!-- ================= MENU ================= -->
+
+<aside
+  class="drawer"
+  id="drawer"
+>
+
+  <div class="drawer-head">
+
+    <strong>
+      DO IT.
+    </strong>
+
+    <button
+      class="close"
+      onclick="closeAll()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <nav>
+
+    <a
+      href="#story"
+      onclick="closeAll()"
+    >
+      Unsere Story
+      <small>01</small>
+    </a>
+
+    <a
+      href="#shop"
+      onclick="closeAll()"
+    >
+      Kategorien
+      <small>02</small>
+    </a>
+
+    <a
+      href="#shop"
+      onclick="setCategory('Schuhe');closeAll()"
+    >
+      Schuhe
+      <small>02A</small>
+    </a>
+
+    <a
+      href="#shop"
+      onclick="setCategory('Hosen');closeAll()"
+    >
+      Hosen
+      <small>02B</small>
+    </a>
+
+    <a
+      href="#shop"
+      onclick="setCategory('Jacken');closeAll()"
+    >
+      Jacken
+      <small>02C</small>
+    </a>
+
+    <a
+      href="#shop"
+      onclick="setCategory('Caps');closeAll()"
+    >
+      Caps
+      <small>02D</small>
+    </a>
+
+    <a
+      href="#shop"
+      onclick="setCategory('Mützen');closeAll()"
+    >
+      Mützen
+      <small>02E</small>
+    </a>
+
+    <a
+      href="#"
+      onclick="openCart();return false"
+    >
+      Warenkorb
+      <small>03</small>
+    </a>
+
+    <a
+      href="#contact"
+      onclick="closeAll()"
+    >
+      Kontakt
+      <small>04</small>
+    </a>
+
+    <a
+      href="#"
+      onclick="openSearch();return false"
+    >
+      Suche
+      <small>05</small>
+    </a>
+
+    <a
+      href="#"
+      onclick="openLogin();return false"
+    >
+      Anmelden / Merkliste
+      <small>06</small>
+    </a>
+
+  </nav>
+
+
+  <div class="drawer-bottom">
+
+    <p>
+      DO IT steht für den Moment,
+      in dem aus einem Traum
+      eine Entscheidung wird.
+    </p>
+
+  </div>
+
+</aside>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section
+  class="search-panel"
+  id="searchPanel"
+>
+
+  <button
+    class="close"
+    style="float:right"
+    onclick="closeAll()"
+  >
+    ×
+  </button>
+
+  <div class="kicker">
+    Suche
+  </div>
+
+  <input
+    class="search-input"
+    id="searchInput"
+    placeholder="Suchen..."
+    oninput="renderProducts()"
+  >
+
+  <div class="search-hint">
+    Suche nach Schuhen, Hosen,
+    Jacken, Caps oder Mützen.
+  </div>
+
+</section>
+
+
+<!-- ================= CART ================= -->
+
+<aside
+  class="cart"
+  id="cart"
+>
+
+  <div class="drawer-head">
+
+    <strong>
+      Warenkorb
+    </strong>
+
+    <button
+      class="close"
+      onclick="closeAll()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  ></div>
+
+
+  <div class="cart-total">
+
+    <span>
+      Gesamt
+    </span>
+
+    <span id="cartTotal">
+      0,00 €
+    </span>
+
+  </div>
+
+
+  <button
+    class="checkout"
+    onclick="alert('Der echte Checkout kann als nächster Schritt mit einem Zahlungsanbieter verbunden werden.')"
+  >
+    ZUR KASSE
+  </button>
+
+</aside>
+
+
+<!-- ================= LOGIN ================= -->
+
+<div
+  class="modal"
+  id="loginModal"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      onclick="closeAll()"
+    >
+      ×
+    </button>
+
+    <div class="kicker">
+      DO IT® ACCOUNT
+    </div>
+
+    <h2>
+      Anmelden.
+    </h2>
+
+    <p>
+      Speichere deine Merkliste und
+      erhalte Infos zu neuen Artikeln.
+    </p>
+
+    <input
+      type="email"
+      placeholder="E-Mail"
+    >
+
+    <input
+      type="password"
+      placeholder="Passwort"
+    >
+
+    <button
+      onclick="alert('Demo: Die Anmeldung wird im nächsten Schritt mit einem echten Account-System verbunden.')"
+    >
+      ANMELDEN
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* ================= PRODUKTE ================= */
+
+const products = [
+
+  {
+    id:1,
+    brand:"Nike",
+    name:"Air Force 1",
+    category:"Schuhe",
+    gender:"Männer",
+    price:129.90,
+    image:"",
+    meta:"42 · Sehr gut"
+  },
+
+  {
+    id:2,
+    brand:"Carhartt",
+    name:"Work Pant",
+    category:"Hosen",
+    gender:"Männer",
+    price:79.90,
+    image:"",
+    meta:"M · Sehr gut"
+  },
+
+  {
+    id:3,
+    brand:"The North Face",
+    name:"Puffer Jacket",
+    category:"Jacken",
+    gender:"Frauen",
+    price:169.90,
+    image:"",
+    meta:"S · Sehr gut"
+  },
+
+  {
+    id:4,
+    brand:"New Era",
+    name:"NY Cap",
+    category:"Caps",
+    gender:"Alle",
+    price:39.90,
+    image:"",
+    meta:"One Size"
+  },
+
+  {
+    id:5,
+    brand:"Nike",
+    name:"Beanie",
+    category:"Mützen",
+    gender:"Alle",
+    price:34.90,
+    image:"",
+    meta:"One Size"
+  },
+
+  {
+    id:6,
+    brand:"Adidas",
+    name:"Campus 00s",
+    category:"Schuhe",
+    gender:"Frauen",
+    price:119.90,
+    image:"",
+    meta:"39 · Sehr gut"
+  },
+
+  {
+    id:7,
+    brand:"Levi's",
+    name:"501",
+    category:"Hosen",
+    gender:"Frauen",
+    price:69.90,
+    image:"",
+    meta:"W28 · Gut"
+  },
+
+  {
+    id:8,
+    brand:"Carhartt",
+    name:"Detroit Jacket",
+    category:"Jacken",
+    gender:"Männer",
+    price:149.90,
+    image:"",
+    meta:"L · Sehr gut"
+  }
+
+];
+
+
+let activeFilter="Alle";
+let activeGender="Alle";
+let cart=[];
+
+
+/* ================= PRODUKTE RENDERN ================= */
+
+function renderProducts(){
+
+  const q =
+    (
+      document.getElementById("searchInput")?.value
+      || ""
+    ).toLowerCase();
+
+
+  const list =
+    products.filter(p =>
+
+      (
+        activeFilter==="Alle"
+        ||
+        p.category===activeFilter
+      )
+
+      &&
+
+      (
+        activeGender==="Alle"
+        ||
+        p.gender===activeGender
+      )
+
+      &&
+
+      (
+        p.name
+        +" "
+        +p.brand
+        +" "
+        +p.category
+      )
+      .toLowerCase()
+      .includes(q)
+
+    );
+
+
+  const el =
+    document.getElementById("products");
+
+
+  if(!list.length){
+
+    el.innerHTML =
+      '<div class="empty">Keine Artikel gefunden.</div>';
+
+    return;
+  }
+
+
+  el.innerHTML =
+    list.map(p => `
+
+      <article class="product">
+
+        <button
+          class="heart"
+          onclick="saveItem(${p.id})"
+        >
+          ♡
+        </button>
+
+        <div class="product-img">
+
+          ${
+            p.image
+
+            ?
+
+            `<img
+              src="${p.image}"
+              alt="${p.brand} ${p.name}"
+            >`
+
+            :
+
+            `<span class="placeholder">
+              ${p.category}
+            </span>`
+          }
+
+        </div>
+
+
+        <div class="product-info">
+
+          <div class="brand">
+            ${p.brand}
+          </div>
+
+          <div class="product-name">
+            ${p.name}
+          </div>
+
+          <div class="meta">
+
+            <span>
+              ${p.meta}
+            </span>
+
+            <span class="price">
+              ${p.price
+                .toFixed(2)
+                .replace(".",",")
+              } €
+            </span>
+
+          </div>
+
+
+          <button
+            class="add"
+            onclick="addToCart(${p.id})"
+          >
+            In den Warenkorb
+          </button>
+
+        </div>
+
+      </article>
+
+    `).join("");
+
+}
+
+
+/* ================= KATEGORIE ================= */
+
+function setCategory(cat){
+
+  activeFilter=cat;
+
+
+  document
+    .querySelectorAll(".filter")
+    .forEach(b =>
+      b.classList.toggle(
+        "active",
+        b.dataset.filter===cat
+      )
+    );
+
+
+  renderProducts();
+}
+
+
+document
+  .querySelectorAll(".filter")
+  .forEach(
+    b =>
+      b.onclick =
+        () =>
+          setCategory(
+            b.dataset.filter
+          )
+  );
+
+
+/* ================= GESCHLECHT ================= */
+
+document
+  .querySelectorAll(".gender button")
+  .forEach(
+    b =>
+
+      b.onclick = () => {
+
+        activeGender =
+          b.dataset.gender;
+
+
+        document
+          .querySelectorAll(".gender button")
+          .forEach(
+            x =>
+              x.classList.toggle(
+                "active",
+                x===b
+              )
+          );
+
+
+        renderProducts();
+
+      }
+  );
+
+
+/* ================= WARENKORB ================= */
+
+function addToCart(id){
+
+  const p =
+    products.find(
+      x => x.id===id
+    );
+
+  cart.push(p);
+
+  updateCart();
+
+  openCart();
+}
+
+
+function updateCart(){
+
+  document
+    .getElementById("bagCount")
+    .textContent =
+      cart.length;
+
+
+  const items =
+    document.getElementById(
+      "cartItems"
+    );
+
+
+  if(!cart.length){
+
+    items.innerHTML =
+      '<p style="color:#777">Dein Warenkorb ist leer.</p>';
+
+  }
+
+  else{
+
+    items.innerHTML =
+      cart.map(
+        (p,i) => `
+
+          <div class="cart-item">
+
+            <div class="cart-item-img"></div>
+
+            <div style="flex:1">
+
+              <small style="color:#777">
+                ${p.brand}
+              </small>
+
+              <div>
+                ${p.name}
+              </div>
+
+              <strong>
+                ${p.price
+                  .toFixed(2)
+                  .replace(".",",")
+                } €
+              </strong>
+
+            </div>
+
+            <button
+              onclick="removeCart(${i})"
+              style="
+                background:none;
+                border:0;
+                color:#777;
+              "
+            >
+              ×
+            </button>
+
+          </div>
+
+        `
+      ).join("");
+
+  }
+
+
+  document
+    .getElementById("cartTotal")
+    .textContent =
+
+      cart
+        .reduce(
+          (a,p) => a+p.price,
+          0
+        )
+        .toFixed(2)
+        .replace(".",",")
+      +" €";
+
+}
+
+
+function removeCart(i){
+
+  cart.splice(i,1);
+
+  updateCart();
+
+}
+
+
+/* ================= MERKLISTE ================= */
+
+function saveItem(id){
+
+  localStorage.setItem(
+    "doit_saved",
+
+    JSON.stringify([
+
+      ...(
+        JSON.parse(
+          localStorage.getItem(
+            "doit_saved"
+          )
+          ||
+          "[]"
+        )
+      ),
+
+      id
+
+    ])
+  );
+
+
+  alert(
+    "Artikel gemerkt. Melde dich an, um deine Merkliste dauerhaft zu speichern."
+  );
+
+}
+
+
+/* ================= MENÜ ================= */
+
+function openMenu(){
+
+  closeAll();
+
+  document
+    .getElementById("drawer")
+    .classList.add("open");
+
+  document
+    .getElementById("overlay")
+    .classList.add("open");
+
+}
+
+
+/* ================= WARENKORB ÖFFNEN ================= */
+
+function openCart(){
+
+  closeAll();
+
+  document
+    .getElementById("cart")
+    .classList.add("open");
+
+  document
+    .getElementById("overlay")
+    .classList.add("open");
+
+  updateCart();
+
+}
+
+
+/* ================= SUCHE ================= */
+
+function openSearch(){
+
+  closeAll();
+
+  document
+    .getElementById("searchPanel")
+    .classList.add("open");
+
+
+  setTimeout(
+
+    () =>
+      document
+        .getElementById("searchInput")
+        .focus(),
+
+    300
+
+  );
+
+}
+
+
+/* ================= LOGIN ================= */
+
+function openLogin(){
+
+  closeAll();
+
+  document
+    .getElementById("loginModal")
+    .classList.add("open");
+
+}
+
+
+/* ================= SCHLIESSEN ================= */
+
+function closeAll(){
+
+  document
+    .querySelectorAll(
+      ".drawer,.cart,.search-panel,.modal,.overlay"
+    )
+    .forEach(
+      x =>
+        x.classList.remove("open")
+    );
+
+}
+
+
+/* ================= HEADER SCROLL ================= */
+
+window.addEventListener(
+  "scroll",
+
+  () =>
+
+    document
+      .getElementById("header")
+      .classList.toggle(
+        "scrolled",
+        scrollY>30
+      )
+
+);
+
+
+/* ================= LOADER ================= */
+
+window.addEventListener(
+  "load",
+
+  () =>
+
+    setTimeout(
+      () =>
+        document
+          .getElementById("loader")
+          .classList.add("hide"),
+
+      700
+    )
+
+);
+
+
+/* ================= START ================= */
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
